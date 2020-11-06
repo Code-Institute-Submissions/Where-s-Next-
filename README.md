@@ -1,45 +1,141 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# MSP2 Where's Next?  Website
 
-Welcome USER_NAME,
+![Screenshot](assets/images/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+This is the Website for [Where's Next?]() Where's next is a site that allows useres to search for their next holiday destinations using google maps to find accomadation and with Google Places they can find places to eat and top attractions nearby. 
 
-## Gitpod Reminders
+## User Experience (UX)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+This Website has been designed for Couples, families, Single adults, teens and anyone who wants to leave there cares behind and discover somewhere new. Bu using Where's next the user can find inspiration from recomeneded destinations or they can use the search feature to find their ideal location.
 
-`python3 -m http.server`
+**User stories**
 
-A blue button should appear to click: *Make Public*,
+**External User Goals:**
+* Find the best holiday destination for their needs.
 
-Another blue button should appear to click: *Open Browser*.
+**Site Owner's Goals:**
+*  Get users to choose a travel package from this site and/or from its sponsors.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Make Public*,
+**Design**
+*  Colour Scheme   
+    
 
-Another blue button should appear to click: *Open Browser*.
+*  Typography
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+    
+*  Imagery
 
-## Updates Since The Instructional Video
+    
+* Wireframes
+[Where's Next? Wireframe](docs/)
+ 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+ ## Features
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+ * Responsive on all devices
+ * Google Maps 
+ * Google Places
+ 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+ ## Technologies Used
+ 
+ **Languages Used** 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+ * HTML5
+ * CSS3
+ * JavaScript
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+**Frameworks, Libraries & Programs Used**
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+1. Bootstrap 4.5.2:
+* Bootstrap was used with to assist with styling and responsiveness of the website.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+2. Font Awesome:
+* Font Awesome was used to provide the Icons throughout this website.
 
---------
+3. Google Fonts:
+* Google fonts was used to import the font into the style.css file
+4. JQuery:
+*
 
-Happy coding!
+5. Git: 
+* Git was used by utilizing the Gitpod terminal to commit to Git and push to GitHub
+
+6. GitHub:
+* GitHub was used to create a repository and store the code after it was pushed from Git.
+
+7. Photoshop:
+* Photoshop was used to customise all images throughout the website and create the logo.
+
+8. Balsamiq:
+* Wireframes were created using Balsamiq
+
+
+
+
+## Testing
+
+
+**Testing User Stories**
+
+**First Time User Goals:**
+
+**Returning User Goals:**
+
+**Site Owners Goals:**  
+
+
+## Bugs
+
+
+
+## Future Development
+
+
+
+## Deployment 
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Log in to GitHub and locate the GitHub Repository
+2. At the top of the Repository click the "Settings" button on the menu.
+3. On the Settings page locate the "GitHub Pages" Section.
+4. Under "Source", click the dropdown called "None" and select "Master Branch".
+5. Now above the "GitHub Pages" section the published site link will be displayed.
+
+## Forking the GitHub Repository
+
+Forking the GitHub repository allows you to create a copy of the original on your GitHub account where you can view or make changes without changing the original. To fork a repository you need to...
+
+1. Log in to GitHub and locate the GitHub Repository
+2. At the top of the Repository click the "Settings" button on the menu.
+3. On the settings page locate the "Fork" button.
+4. A copy should now be in your GitHub account.
+
+## Creating a Local Clone
+
+To make A local clone follow these steps...
+
+1. Log in to GitHub and locate the GitHub Repository
+2. Under the repository name, click"Clone or Download".
+3. Click the "Clone with HTTPS" and copy the link.
+4. Open Git Bash and change the working directory to the location where the clone will be copied to.
+5. Type "git clone" and then paste the URL and press enter. and a clone will be created.
+
+## Credits
+
+**Code**
+
+
+
+**Content & Media**
+
+
+
+
+**Acknowledgements**
+
+
+ 
