@@ -39,13 +39,39 @@
             <a href="#" class="btn">Where's Next?</a>
         </div> 
     </section>
-    <section class="container-fluid search">
+    <section class="container-fluid map-search">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 search-column">
+                <div class="col-md-12">
+                    <h3 class="search-heading">Search</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="country col-md-12 search-header">
+                    Country:
+                    <input id="autocomplete" class="input-boxes" type="text" placeholder="Country">
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="city col-md-12 search-header">
+                    City:
+                    <input id="autocomplete" class="input-boxes" type="text" placeholder="City">
+                </div>
+                
+            </div>
+        </div>
         <div id="map"></div>
     </section>
-    
+    <section class="container-fluid inspire-me">
+        <h2>Popular Destinations</h2>
+    </section>
 
     
-
+    <footer>
+     
+    </footer>
     <script src="assets/js/gmaps.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEUBUS7iRmYbZ71VrqZL9HjJWBXAEtd9w&liabries=places&callback=initMap"
