@@ -60,7 +60,7 @@ body {
 }
 
 /*----------------About*/
-.about .contentBx {
+#about .contentBx {
     text-align: center;
     padding: 20px;
 }
@@ -74,9 +74,25 @@ body {
 }
 
 /*----------------Map*/
+#search {
+    background-color: rgb(0, 87, 113);   
+}
+input {
+    color: #1a1a1b;
+}
+ select {
+     color: #1a1a1b;
+ }
+ option {
+     color: #1a1a1b;
+ }
 #map {
     height: 400px;
-    width: 50%;
-      
+    width: 100%;
+    position: relative;
+         
 }
 
+#results {
+    background-color: rgb(0, 87, 113);
+}

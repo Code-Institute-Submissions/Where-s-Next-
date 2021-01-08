@@ -15,7 +15,7 @@
         <nav>
           <ul class="menu">
             <li>
-                <a href="#">Inspire Me</a>
+                <a href="#inspire-me">Inspire Me</a>
             </li>
             <li>
                 <a href="#search">Search</a>
@@ -32,40 +32,125 @@
                 
             </div>
     </section>
-    <section class="about">
+    <section id="about">
         <div class="contentBx">
             <h2 class="quote">Don't get so busy making a living that you forget to make a life - Dolly Parton</h2>
             <p>Why work 9 to 5 and not enjoy life. Where's Next is here to help you find your dream destination, your next city break, a romantic stroll on the beach or time away with the family. All you need to ask is Where's Next?</p>
-            <a href="#" class="btn">Where's Next?</a>
+            <a href="#inspire-me" class="btn">Inspire Me</a>
         </div> 
     </section>
-    <section class="container-fluid map-search">
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 search-column">
-                <div class="col-md-12">
-                    <h3 class="search-heading">Search</h3>
+    
+    <section id="search">
+        <h3 class="search-heading">So Where's Next?</h3>
+            <p>Use the search option to find your next holiday, use the drop down menu to select a Country or search for a City</p>
+        <div class="container-fluid map-search">           
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 search-header">Country:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="country" id="country" placeholder="Country">
+                                <option value="all">All</option>
+                                <option value="au">Australia</option>
+                                <option value="br">Brazil</option>
+                                <option value="ch">China</option>
+                                <option value="fr">France</option>
+                                <option value="de">Germany</option>
+                                <option value="it">Italy</option>
+                                <option value="mx">Mexico</option>
+                                <option value="nz">New Zealand</option>
+                                <option value="pt">Portugal</option>
+                                <option value="es">Spain</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="usa">U.S.A</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <div class="city col-md-12 search-header">City:</div>
+                    </div>
+                    <div class="row">  
+                        <div id="cityLocation" class="col-md-12">  
+                            <input id="autocomplete" class="input-boxes" type="text" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="type" class="col-md-12 search-header">Type:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 radio-form">
+                            <form>
+                                <input type="radio" name="gender" value="hotels" id="hotelRadio"><span class="radio-buttons">Hotels</span>
+                                <br>
+                                <input type="radio" name="gender" value="restaurants/Bars" id="foodRadio"><span class="radio-buttons">Restaurants/Bars</span>
+                                <br>
+                                <input type="radio" name="gender" value="attractions" id="attractionsRadio"><span class="radio-buttons">Things to do</span>                      
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="reset-button" type="button" class="btn" onclick="reset()">Clear</button>
+                        </div>
+                    </div>
+                </div>             
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">                                  
+                            <div id="map"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>                       
+    </section>
+    <section id="results"> 
+        <div class="container-fluid">
             <div class="row">
-                <div class="country col-md-12 search-header">
-                    Country:
-                    <input id="autocomplete" class="input-boxes" type="text" placeholder="Country">
+                <div class="col-md-12" >
+                    <h3 id="results-panel">Results</h3>
                 </div>
-            </div>
-            
-
-            <div class="row">
-                <div class="city col-md-12 search-header">
-                    City:
-                    <input id="autocomplete" class="input-boxes" type="text" placeholder="City">
+                <div style="display: none">
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-ur l-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Rating:</td>
+                                <td id="iw-rating"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Website:</td>
+                                <td id="iw-website"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                
             </div>
         </div>
-        <div id="map"></div>
     </section>
-    <section class="container-fluid inspire-me">
+    <section id="inspire-me">
         <h2>Popular Destinations</h2>
+            <div class="card">
+                <img src="assets/images/ny.jpg" alt="New York" style="width: 100%;">
+                <div class="container">
+                    <h3><b>New York</b></h3>
+                    <p>The hustle and bustle</p>
+                </div>
+            </div>
+        
     </section>
 
     
