@@ -55,7 +55,7 @@
                                 <option value="all">All</option>
                                 <option value="au">Australia</option>
                                 <option value="br">Brazil</option>
-                                <option value="ch">China</option>
+                                <option value="ca">Canada</option>
                                 <option value="fr">France</option>
                                 <option value="de">Germany</option>
                                 <option value="it">Italy</option>
@@ -64,7 +64,7 @@
                                 <option value="pt">Portugal</option>
                                 <option value="es">Spain</option>
                                 <option value="uk">United Kingdom</option>
-                                <option value="usa">U.S.A</option>
+                                <option value="us">U.S.A</option>
                             </select>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="row">  
                         <div id="cityLocation" class="col-md-12">  
-                            <input id="autocomplete" class="input-boxes" type="text" placeholder="City">
+                            <input id="autocomplete" class="input-boxes" type="text" placeholder="Enter a city">
                         </div>
                     </div>
                     <div class="row">
@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="col-md-12 radio-form">
                             <form>
-                                <input type="radio" name="gender" value="hotels" id="hotelRadio"><span class="radio-buttons">Hotels</span>
+                                <input type="radio" name="gender" value="hotels" id="accomodationRadio"><span class="radio-buttons">Hotels</span>
                                 <br>
                                 <input type="radio" name="gender" value="restaurants/Bars" id="foodRadio"><span class="radio-buttons">Restaurants/Bars</span>
                                 <br>
@@ -157,10 +157,9 @@
     <footer>
      
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/gmaps.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEUBUS7iRmYbZ71VrqZL9HjJWBXAEtd9w&liabries=places&callback=initMap"
-      defer
-    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEUBUS7iRmYbZ71VrqZL9HjJWBXAEtd9w&libraries=places&callback=initMap" async defer></script>
+      
 </body>
 </html>

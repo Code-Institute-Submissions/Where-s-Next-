@@ -1,121 +1,132 @@
 var map, places, infoWindow;
 var markers = [];
 var autocomplete;
-var countryRestrict = { country: [] };
+var countryRestrict = { 'country': [] };
 var MARKER_PATH =
   "https://developers.google.com/maps/documentation/javascript/images/marker_green";
-
 var hostnameRegexp = new RegExp("^https?://.+?/");
 
 //List of Countries and properties
 var countries = {
-    au: {
+    "au": {
     center: { lat: -25.3, lng: 133.8 },
     zoom: 4,
   },
-  br: {
+  "br": {
     center: { lat: -14.2, lng: -51.9 },
     zoom: 3,
   },
-  ca: {
+  "ca": {
     center: { lat: 62, lng: -110.0 },
     zoom: 3,
   },
-  fr: {
+  "fr": {
     center: { lat: 46.2, lng: 2.2 },
     zoom: 5,
   },
-  de: {
+  "de": {
     center: { lat: 51.2, lng: 10.4 },
     zoom: 5,
   },
-  mx: {
+  "mx": {
     center: { lat: 23.6, lng: -102.5 },
     zoom: 4,
   },
-  nz: {
+  "nz": {
     center: { lat: -40.9, lng: 174.9 },
     zoom: 5,
   },
-  it: {
+  "it": {
     center: { lat: 41.9, lng: 12.6 },
     zoom: 5,
   },
-  za: {
+  "za": {
     center: { lat: -30.6, lng: 22.9 },
     zoom: 5,
   },
-  es: {
+  "es": {
     center: { lat: 40.5, lng: -3.7 },
     zoom: 5,
   },
-  pt: {
+  "pt": {
     center: { lat: 39.4, lng: -8.2 },
     zoom: 6,
   },
-  us: {
+  "us": {
     center: { lat: 37.1, lng: -95.7 },
     zoom: 3,
   },
-  uk: {
+  "uk": {
     center: { lat: 54.8, lng: -4.6 },
     zoom: 5,
-  },
+  }
 };
 
+function reset() {
+    clearResults();
+    clearMarkers();
+    $("#country")[0].selectedIndex = 0;
+    $("#autocomplete").val("");
+    $("#results-button").innerHTML("");
+    map.setZoom(2);
+    map.setCenter(countries["uk"].center);
+    map.componentRestrictions = {"country": [] };
+    place = "";
+}
+
 function initMap() {
-//$("#hotelRadio").prop("checked" , true);
+$("#accomodationRadio").prop("checked", true);
   map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 2,
     center: countries ["uk"].center,
-    zoom: countries ["uk"].zoom,
     mapTypeControl: false,
     panControl: false,
     zoomControl: false,
     streetViewControl: false,
+    componentRestrictions: countryRestrict
   });
 
 infoWindow = new google.maps.InfoWindow({
-    content: document.getElementById("info-content")
+    content: document.getElementById("info-content"),
 });
 //Create the autocomplete and associate it with UI input control
 
 autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("autocomplete"),
-    {
+   
+    document.getElementById("autocomplete"), {
         types: ["(cities)"],
-        componentRestrictions: countryRestrict,
-    }
-);
-places = new google.maps.places.PlacesService(map);
-autocomplete.addListener("place_changed" , onPlacedChanged);
-document.getElementById("foodRadio").addEventListener("change" , onPlacedChanged);
-document.getElementById("hotelRadio").addEventListener("change" , onPlacedChanged);
-document.getElementById("attractionsRadio").addEventListener("change" , onPlacedChanged);
-document.getElementById("country").addEventListener("change" , setAutocompleteCountry);
-document.getElementById("reset-button").addEventListener("change" , setAutocompleteCountry);
+        componentRestrictions: countryRestrict
+    }); places = new google.maps.places.PlacesService(map);
+
+autocomplete.addListener("place_changed", onPlaceChanged);
+document.getElementById("foodRadio").addEventListener("change", onPlaceChanged);
+document.getElementById("accomodationRadio").addEventListener("change", onPlaceChanged);
+document.getElementById("attractionsRadio").addEventListener("change", onPlaceChanged);
+document.getElementById("country").addEventListener("change", setAutocompleteCountry);
+document.getElementById("reset-button").addEventListener("change", setAutocompleteCountry);
 }
 
 function onPlaceChanged() {
-    if($("hotelRadio").is(":checked")) {
+    if ($("#hotelRadio").is(":checked")) {
         var place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
             searchHotel();
         }  else {
-            $("#autocomplete").attr("placeholder" , "City");
+            $("#autocomplete").attr("placeholder","Enter a city");
         }
     }
     else if ($("#foodRadio").is(":checked")) {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-            map.panTo(place.geometry.location);
-            map.setZoom(15);
-            searchRestaurant();
+      var place = autocomplete.getPlace();
+      if (place.geometry) {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        searchRestaurant();
         }
     else {
-            $("#autocomplete").attr("placeholder" , "City");
-        }
+      $("#autocomplete").attr("placeholder","Enter a city");
+      }
     }
     else if ($("#attractionsRadio").is(":checked")) {
         var place = autocomplete.getPlace();
@@ -125,12 +136,13 @@ function onPlaceChanged() {
             searchAttractions();
         }
     else {
-        $("#autocomplete").attr("placeholder" , "City");
+        $("#autocomplete").attr("placeholder","Enter a city");
     }
 }
 
+}
 //search for hotels in selected city
-function searchHotel() {
+function search() {
     var search = {
         bounds: map.getBounds(),
         types: ["lodging"]
@@ -139,11 +151,12 @@ function searchHotel() {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
+    document.getElementById("results-heading").innerHtml = "Results";
        
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
     for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode("A" .charCodeAt(0) + (i % 26));
+        var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
         var markerIcon = MARKER_PATH + markerLetter + ".png";
     //Marker animation to drop the icons
     markers[i] = new google.maps.Marker({
@@ -166,11 +179,12 @@ function searchRestaurant() {
         bounds: map.getBounds(),
         types: ["restaurants", "bar"]
     };
+
     places.nearbySearch(search, function(results, status) {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
-       
+       document.getElementById("results-panel").innerHTML = "Results";
     // Create a marker for each restaurant found, and
     // assign a letter of the alphabetic to each marker
     for (var i = 0; i < results.length; i++) {
@@ -201,7 +215,7 @@ function searchAttractions() {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
-       
+       document.getElementById("results-heading").innerHTML = "Results";
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
     for (var i = 0; i < results.length; i++) {
@@ -224,7 +238,7 @@ function searchAttractions() {
 }
 
 function clearMarkers() {
-    for (var i = 0; i< markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
         if (markers[i]) {
             markers[i].setMap(null);
         }
@@ -234,14 +248,15 @@ function clearMarkers() {
 
 // set the country restrictions based on user input.
 // Also center and zoom the map on the given country
-function setAutocompleteCountry () {
+function setAutocompleteCountry() {
     var country = $("#country").val();
     if (country == "all") {
-        autocomplete.setComponentRestrictions ({ country: [] });
-        map.setCenter({ lat: 15, lng: 0});
-        map.setZoom(2);
-    } else {
-        autocomplete.setComponentRestrictions ({ country: country });
+        autocomplete.setComponentRestrictions({ "country": [] });
+        map.setCenter({ lat: 15, lng: 0 });
+        map.setZoom(2); 
+    }
+    else {
+        autocomplete.setComponentRestrictions({ country: country });
         map.setCenter(countries[country].center);
         map.setZoom(countries[country].zoom);
     }
@@ -285,5 +300,66 @@ function clearResults() {
         results.removeChild(results.childNodes[0]);
     }
 }
+
+// Get the place details for hotel, restaurant, attraction.
+//anchored on the marker for the hotel that user selects
+function showInfoWindow() {
+    var marker = this;
+    places.getDetails({ placeId: marker.placeResult.place_id },
+        function(place, status) {
+         if (status !== google.maps.places.PlacesServiceStatus.OK) {
+             return;
+         }
+         infoWindow.open(map, marker);
+         buildIWContent(place);
+        });
 }
 
+//Load the place information into HTML elements
+function buildIWContent(place) {
+    document.getElementById("iw-icon").innerHTML = '<img class="hotelIcon" ' + 'src="' + place.icon + '"/>';
+    document.getElementById("iw-url").innerHTML = '<b><a href="' + place.url + '">' + place.name + "</a></b>";
+    document.getElementById("iw-address").textContent = place.vicinity;
+
+if (place.formatted_phone_number) {
+    document.getElementById("iw-phone-row").style.display = "";
+    document.getElementById("iw-phone").textContent = place.formatted_phone_number;
+} 
+else {
+    document.getElementById("iw-phone-row").style.display = "none";
+}
+
+//Assign a five-star rating to the place
+//to indicate the rating the place has earned.
+if (place.rating) {
+    var ratingHtml = "";
+    for (var i = 0; i < 5; i++) {
+      if (place.rating < (i + 0.5)) {
+          ratingHtml += "&#10025;";
+      } 
+    else {
+          ratingHtml += "&#10029;";
+      }
+      document.getElementById("iw-rating-row").style.display = "";
+      document.getElementById("iw-rating").innerHTML = ratingHtml;
+      }
+    } 
+    else {
+      document.getElementById("iw-rating-row").style.display = "none";
+    }
+// The regexp isolates the first part of the URL (domain plus subdomain)
+//to give a short URL for displaying in the info window
+if (place.website) {
+    var fullUrl = place.website;
+    var website = hostnameRegexp.exec(place.website);
+    if (website === null) {
+        website = 'http://' + place.website + '/';
+        fullUrl = website;
+    }
+    document.getElementById('iw-website-row').style.display = '';
+    document.getElementById('iw-website').textContent = website;
+}
+else {
+    document.getElementById('iw-website-row').style.display = 'none';
+}
+}
