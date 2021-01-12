@@ -43,6 +43,7 @@ body {
 }
 h2, h3 {
     color: #fafafb;
+    padding-left: 10px;
 }
 /*----------------Main Image*/
 .hero-image{
@@ -84,6 +85,7 @@ h2, h3 {
 
 #search p {
     color: #fafafb;
+    padding: 10px;
 }
 
 #map {
@@ -91,14 +93,49 @@ h2, h3 {
     width: 100%;
     position: relative;
 }
+.map-search {
+    padding-bottom: 20px;
+}
 .search-header {
     color: #fafafb;
 }
-#results {
+.radio-form {
+    color: #fafafa;
+}
+/*---------------Results window*/
+#results-table {
     background-color: rgb(0, 87, 113);
     }
 table {
-  font-size: 12px;
+  font-size: 18px;
+  width: 100%;
 }
 
+/*-------------- Popular Destinations*/
+#inspire-me {
+    background-color: rgb(229, 155, 136);
+    display: grid;    
+}
 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    background-color: rgb(229, 155, 136);
+    border-style: none;
+}
+img{
+    width: 100%;
+    
+}
+.container {
+    position: relative;
+    padding: 10px;
+}
+
+.details {
+    padding: 10px;
+}
