@@ -82,17 +82,17 @@
                     <div class="row">
                         <div class="col-md-12 radio-form">
                             <form>
-                                <input type="radio" name="gender" value="hotels" id="accomodationRadio"><span class="radio-buttons">Hotels</span>
+                                <input type="radio" name="gender" value="accomodation" id="accomodationRadio"><span class="radio-buttons">Accomodation</span>
                                 <br>
                                 <input type="radio" name="gender" value="restaurants/Bars" id="foodRadio"><span class="radio-buttons">Restaurants/Bars</span>
                                 <br>
-                                <input type="radio" name="gender" value="attractions" id="attractionsRadio"><span class="radio-buttons">Things to do</span>                      
+                                <input type="radio" name="gender" value="Tourist Attractions" id="touristRadio"><span class="radio-buttons">Things to do</span>                      
                             </form>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button id="reset-button" type="button" class="btn" onclick="reset()">Clear</button>
+                            <button id="reset-button" type="button" class="btn" onclick="reset()">Reset</button>
                         </div>
                     </div>
                 </div>             
@@ -106,12 +106,21 @@
             </div>
         </div>                       
     </section>
-    <section id="results"> 
-        <div class="container-fluid">
+    <section class="container-fluid">
             <div class="row">
                 <div class="col-md-12" >
-                    <h3 id="results-panel">Results</h3>
+                    <h3 id="results-heading">Results</h3>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="listings">
+                        <table id="resultsTable">
+                            <tbody id="results"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
                 <div style="display: none">
                     <div id="info-content">
                         <table>
@@ -137,9 +146,7 @@
                             </tr>
                         </table>
                     </div>
-                </div>
-            </div>
-        </div>
+               </div>
     </section>
     <section id="inspire-me">
         <h2>Popular Destinations</h2>
@@ -159,7 +166,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/gmaps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEUBUS7iRmYbZ71VrqZL9HjJWBXAEtd9w&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEUBUS7iRmYbZ71VrqZL9HjJWBXAEtd9w&libraries=places&callback=initMap"></script>
       
 </body>
 </html>
