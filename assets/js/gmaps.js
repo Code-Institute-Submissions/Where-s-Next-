@@ -1,4 +1,6 @@
-var map, places, infoWindow;
+var map;
+var places; 
+var infoWindow;
 var markers = [];
 var autocomplete;
 var countryRestrict = { 'country': [] };
@@ -59,31 +61,31 @@ var countries = {
   "uk": {
     center: { lat: 54.8, lng: -4.6 },
     zoom: 5,
-  }
+  },
 };
 
+//reset the map back to state
 function reset() {
     clearResults();
     clearMarkers();
+    map.setZoom(2);
+    map.setCenter(countries ["uk"].center);
+    map.setComponentRestrictions = { "country": []};
+    place = "";
     $("#country")[0].selectedIndex = 0;
     $("#autocomplete").val("");
-    $("#results-button").innerHTML("");
-    map.setZoom(2);
-    map.setCenter(countries["uk"].center);
-    map.componentRestrictions = {"country": [] };
-    place = "";
 }
 
 function initMap() {
 $("#accomodationRadio").prop("checked", true);
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 2,
+    zoom: 3,
     center: countries ["uk"].center,
     mapTypeControl: false,
     panControl: false,
-    zoomControl: false,
+    zoomControl: true,
     streetViewControl: false,
-    componentRestrictions: countryRestrict
+    
   });
 
 infoWindow = new google.maps.InfoWindow({
@@ -95,19 +97,19 @@ autocomplete = new google.maps.places.Autocomplete(
    
     document.getElementById("autocomplete"), {
         types: ["(cities)"],
-        componentRestrictions: countryRestrict
-    }); places = new google.maps.places.PlacesService(map);
-
-autocomplete.addListener("place_changed", onPlaceChanged);
-document.getElementById("foodRadio").addEventListener("change", onPlaceChanged);
-document.getElementById("accomodationRadio").addEventListener("change", onPlaceChanged);
-document.getElementById("attractionsRadio").addEventListener("change", onPlaceChanged);
-document.getElementById("country").addEventListener("change", setAutocompleteCountry);
-document.getElementById("reset-button").addEventListener("change", setAutocompleteCountry);
+        componentRestrictions: countryRestrict,
+    }); 
+    places = new google.maps.places.PlacesService(map);
+    autocomplete.addListener("place_changed", onPlaceChanged);
+    document.getElementById("foodRadio").addEventListener("change", onPlaceChanged);
+    document.getElementById("accomodationRadio").addEventListener("change", onPlaceChanged);
+    document.getElementById("touristRadio").addEventListener("change", onPlaceChanged);
+    document.getElementById("country").addEventListener("change", setAutocompleteCountry);
+    document.getElementById("reset-button").addEventListener("change", setAutocompleteCountry);
 }
 
 function onPlaceChanged() {
-    if ($("#hotelRadio").is(":checked")) {
+    if ($("#accomodationRadio").is(':checked')) {
         var place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -117,7 +119,7 @@ function onPlaceChanged() {
             $("#autocomplete").attr("placeholder","Enter a city");
         }
     }
-    else if ($("#foodRadio").is(":checked")) {
+    else if ($("#foodRadio").is(':checked')) {
       var place = autocomplete.getPlace();
       if (place.geometry) {
         map.panTo(place.geometry.location);
@@ -128,7 +130,7 @@ function onPlaceChanged() {
       $("#autocomplete").attr("placeholder","Enter a city");
       }
     }
-    else if ($("#attractionsRadio").is(":checked")) {
+    else if ($("#touristRadio").is(':checked')) {
         var place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -142,16 +144,16 @@ function onPlaceChanged() {
 
 }
 //search for hotels in selected city
-function search() {
+function searchHotel() {
     var search = {
         bounds: map.getBounds(),
-        types: ["lodging"]
+        types: ['lodging']
     };
-    places.nearbySearch(search, function(results, status) {
+    places.nearbySearch(search, (results, status, pagination) => {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
-    document.getElementById("results-heading").innerHtml = "Results";
+    document.getElementById("results-heading").innerHTML = "Results";
        
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
@@ -177,14 +179,14 @@ function search() {
 function searchRestaurant() {
     var search = {
         bounds: map.getBounds(),
-        types: ["restaurants", "bar"]
+        types: ['restaurant', 'bar', 'cafe']
     };
 
     places.nearbySearch(search, function(results, status) {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
-       document.getElementById("results-panel").innerHTML = "Results";
+       document.getElementById("results-heading").innerHTML = "Results";
     // Create a marker for each restaurant found, and
     // assign a letter of the alphabetic to each marker
     for (var i = 0; i < results.length; i++) {
@@ -219,19 +221,19 @@ function searchAttractions() {
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
     for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode("A" .charCodeAt(0) + (i % 26));
+        var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
         var markerIcon = MARKER_PATH + markerLetter + ".png";
     //Marker animation to drop the icons
     markers[i] = new google.maps.Marker({
         position: results[i].geometry.location,
         animation: google.maps.Animation.DROP,
-        icon: markerIcon
+        icon: markerIcon,
     });
     //If user clicks on marker show details in an info window
     markers[i].placeResult = results[i];
     google.maps.event.addListener(markers[i], "click", showInfoWindow);
     setTimeout(dropMarker(i), i * 100);
-    addResult(results[i],  i);
+    addResult(results[i], i);
     }
 }
 });
@@ -249,9 +251,9 @@ function clearMarkers() {
 // set the country restrictions based on user input.
 // Also center and zoom the map on the given country
 function setAutocompleteCountry() {
-    var country = $("#country").val();
+    var country = document.getElementById("country").value;
     if (country == "all") {
-        autocomplete.setComponentRestrictions({ "country": [] });
+        autocomplete.setComponentRestrictions({ country: [] });
         map.setCenter({ lat: 15, lng: 0 });
         map.setZoom(2); 
     }
@@ -271,7 +273,7 @@ function dropMarker(i) {
 }
 
 //Adds found results
-function addResults(result, i) {
+function addResult(result, i) {
     var results = document.getElementById("results");
     var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
     var markerIcon = MARKER_PATH + markerLetter + ".png";
@@ -361,5 +363,17 @@ if (place.website) {
 }
 else {
     document.getElementById('iw-website-row').style.display = 'none';
+}
+
+//reset the map back to state
+function reset() {
+    clearResults();
+    clearMarkers();
+    map.setZoom(2);
+    map.setCenter(countries ["uk"].center);
+    map.setComponentRestrictions = { "country": []};
+    place = "";
+    $("#country")[0].selectedIndex = 0;
+    $("#autocomplete").val("");
 }
 }
