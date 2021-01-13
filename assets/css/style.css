@@ -44,6 +44,7 @@ body {
 h2, h3 {
     color: #fafafb;
     padding-left: 10px;
+    padding-top: 10px;
 }
 /*----------------Main Image*/
 .hero-image{
@@ -138,4 +139,5 @@ img{
 
 .details {
     padding: 10px;
+    color: #fafafa;
 }
