@@ -37,7 +37,7 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
     
 * Wireframes
-[Where's Next? Wireframe](docs/Wheres next.pdf)
+[Where's Next? Wireframe](docs/Where'snext.pdf)
  
 
  ## Features
