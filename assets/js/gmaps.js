@@ -75,7 +75,7 @@ function reset() {
     $("#country")[0].selectedIndex = 0;
     $("#autocomplete").val("");
 }
-
+//Inititialise the map
 function initMap() {
 $("#accomodationRadio").prop("checked", true);
   map = new google.maps.Map(document.getElementById("map"), {
@@ -91,8 +91,8 @@ $("#accomodationRadio").prop("checked", true);
 infoWindow = new google.maps.InfoWindow({
     content: document.getElementById("info-content"),
 });
-//Create the autocomplete and associate it with UI input control
 
+//Create the autocomplete and associate it with UI input control
 autocomplete = new google.maps.places.Autocomplete(
    
     document.getElementById("autocomplete"), {
@@ -166,7 +166,7 @@ function searchHotel() {
         animation: google.maps.Animation.DROP,
         icon: markerIcon
     });
-    //If user clicks on marker show details in an info window
+//If user clicks on marker show details in an info window
     markers[i].placeResult = results[i];
     google.maps.event.addListener(markers[i], "click", showInfoWindow);
     setTimeout(dropMarker(i), i * 100);
@@ -364,16 +364,5 @@ if (place.website) {
 else {
     document.getElementById('iw-website-row').style.display = 'none';
 }
+}
 
-//reset the map back to state
-function reset() {
-    clearResults();
-    clearMarkers();
-    map.setZoom(2);
-    map.setCenter(countries ["uk"].center);
-    map.setComponentRestrictions = { "country": []};
-    place = "";
-    $("#country")[0].selectedIndex = 0;
-    $("#autocomplete").val("");
-}
-}
