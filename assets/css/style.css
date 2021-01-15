@@ -179,4 +179,7 @@ table {
 .cards {
     display: block;
 }
+.card img {
+    height: 300px;
+}
 }
