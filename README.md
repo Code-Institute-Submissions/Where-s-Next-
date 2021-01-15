@@ -45,6 +45,7 @@ This Website has been designed for Couples, families, Single adults, teens and a
  * Responsive on all devices
  * Google Maps 
  * Google Places
+ * Info Window
  
 
 
@@ -68,7 +69,7 @@ This Website has been designed for Couples, families, Single adults, teens and a
 * Google fonts was used to import the font into the style.css file
 
 4. [JavaScript](https://www.javascript.com/):
-*JavaScript was used to write scripts for the Google Maps Api and the country/City search function.
+* JavaScript was used to write scripts for the Google Maps Api and the country/City search function.
 
 5. [Git](https://git-scm.com/): 
 * Git was used by utilizing the Gitpod terminal to commit to Git and push to GitHub
