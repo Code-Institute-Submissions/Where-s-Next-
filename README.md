@@ -58,30 +58,28 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
 **Frameworks, Libraries & Programs Used**
 
-1. Bootstrap 4.5.2:
+1. [Bootstrap 4.5.2](https://getbootstrap.com/):
 * Bootstrap was used with to assist with styling and responsiveness of the website.
 
-2. Font Awesome:
+2. [Font Awesome](https://fontawesome.com/):
 * Font Awesome was used to provide the Icons throughout this website.
 
-3. Google Fonts:
+3. [Google Fonts](https://fonts.google.com/):
 * Google fonts was used to import the font into the style.css file
-4. JQuery:
-*
 
-5. Git: 
+4. [JavaScript](https://www.javascript.com/):
+*JavaScript was used to write scripts for the Google Maps Api and the country/City search function.
+
+5. [Git](https://git-scm.com/): 
 * Git was used by utilizing the Gitpod terminal to commit to Git and push to GitHub
 
-6. GitHub:
+6. [GitHub](https://github.com/):
 * GitHub was used to create a repository and store the code after it was pushed from Git.
 
-7. Photoshop:
-* Photoshop was used to customise all images throughout the website and create the logo.
-
-8. Balsamiq:
+7. [Balsamiq](https://balsamiq.com/):
 * Wireframes were created using Balsamiq
 
-9. Pixabay:
+8. [Pixabay](https://pixabay.com/):
 * Pixabay was used to source all imagery for the webpage.
 
 
@@ -137,23 +135,23 @@ To make A local clone follow these steps...
 ## Credits
 
 **Code**
-* Bootstrap4: Bootstrap was used throughout the project to ensure the website was responsive.
+* [Bootstrap4:](https://getbootstrap.com/) Bootstrap was used throughout the project to ensure the website was responsive.
 
-* Https://developers.google.com/maps/documentation/javascript/overview: was used as refrence to embed the google maps/places & search facility.
+* [Google Developers](Https://developers.google.com/maps/documentation/javascript/overview:) was used as refrence for google maps/places & search facility.
 
-* YouTube & https://www.w3schools.com/ were used to assit in the coding for the reset button and the radio buttons. 
+* YouTube & [W3Schools](https://www.w3schools.com/) were used to assit in the JavaScript coding to enable the reset button. 
 
 **Content & Media**
 
-Images were sourced from Pixaby and the authours are: 
+Images were sourced from [Pixaby](https://pixabay.com/) and the authours are: 
 
-- Main Image - image by free-photos from Pixabay
-- Amalfi coast - image by Anemone from Pixabay
-- New York - image by Jo Wiggijo from Pixabay
-- Cancun - Image by aladecuervo from Pixabay 
-- Paris - Image by StockSnap from Pixabay 
-- Switzerland -Image by Jörg Vieli from Pixabay
-- Maldives - Image by romaneau from Pixabay  
+- [Main Image](https://pixabay.com/photos/books-reading-beach-vacation-918521/) - image by free-photos from Pixabay
+- [Amalfi coast](https://pixabay.com/photos/amalfi-amalfi-coast-coast-cliff-2254776/) - image by Anemone from Pixabay
+- [New York](https://pixabay.com/photos/usa-new-york-manhattan-view-1778524/) - image by Jo Wiggijo from Pixabay
+- [Cancun](https://pixabay.com/photos/sea-beach-cancun-mexico-vacations-931734/) - Image by aladecuervo from Pixabay 
+- [Paris](https://pixabay.com/photos/bird-couple-beak-paris-2590901/) - Image by StockSnap from Pixabay 
+- [Switzerland](https://pixabay.com/photos/winter-hochybrig-4697776/) -Image by Jörg Vieli from Pixabay
+- [Maldives](https://pixabay.com/photos/maldives-beach-holiday-ocean-666122/) - Image by romaneau from Pixabay  
 
 
 
