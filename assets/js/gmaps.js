@@ -1,15 +1,15 @@
-var map;
-var places; 
-var infoWindow;
-var markers = [];
-var autocomplete;
-var countryRestrict = { 'country': [] };
-var MARKER_PATH =
+let map;
+let places; 
+let infoWindow;
+let markers = [];
+let autocomplete;
+let countryRestrict = { 'country': [] };
+const MARKER_PATH =
   "https://developers.google.com/maps/documentation/javascript/images/marker_green";
-var hostnameRegexp = new RegExp("^https?://.+?/");
+let hostnameRegexp = new RegExp("^https?://.+?/");
 
 //List of Countries and properties, country lat and lng was taken from googledevelopers documentation 
-var countries = {
+const countries = {
     "au": {
     center: { lat: -25.3, lng: 133.8 },
     zoom: 4,
@@ -83,7 +83,7 @@ $("#accomodationRadio").prop("checked", true);
     center: countries ["uk"].center,
     mapTypeControl: false,
     panControl: false,
-    zoomControl: true,
+    zoomControl: false,
     streetViewControl: false,
     
   });
@@ -110,7 +110,7 @@ autocomplete = new google.maps.places.Autocomplete(
 
 function onPlaceChanged() {
     if ($("#accomodationRadio").is(':checked')) {
-        var place = autocomplete.getPlace();
+        let place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
@@ -120,7 +120,7 @@ function onPlaceChanged() {
         }
     }
     else if ($("#foodRadio").is(':checked')) {
-      var place = autocomplete.getPlace();
+      let place = autocomplete.getPlace();
       if (place.geometry) {
         map.panTo(place.geometry.location);
         map.setZoom(15);
@@ -131,7 +131,7 @@ function onPlaceChanged() {
       }
     }
     else if ($("#touristRadio").is(':checked')) {
-        var place = autocomplete.getPlace();
+        let place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
@@ -145,11 +145,11 @@ function onPlaceChanged() {
 }
 //search for hotels in selected city
 function searchHotel() {
-    var search = {
+    let search = {
         bounds: map.getBounds(),
         types: ['lodging']
     };
-    places.nearbySearch(search, (results, status, pagination) => {
+    places.nearbySearch(search, (results, status) => {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
        clearResults();
        clearMarkers();
@@ -157,9 +157,9 @@ function searchHotel() {
        
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
-    for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + ".png";
+    for (let i = 0; i < results.length; i++) {
+        let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
+        let markerIcon = MARKER_PATH + markerLetter + ".png";
     //Marker animation to drop the icons
     markers[i] = new google.maps.Marker({
         position: results[i].geometry.location,
@@ -177,7 +177,7 @@ function searchHotel() {
 }
 //search for restaurants in selected city
 function searchRestaurant() {
-    var search = {
+    let search = {
         bounds: map.getBounds(),
         types: ['restaurant', 'bar', 'cafe']
     };
@@ -189,9 +189,9 @@ function searchRestaurant() {
        document.getElementById("results-heading").innerHTML = "Results";
     // Create a marker for each restaurant found, and
     // assign a letter of the alphabetic to each marker
-    for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode("A" .charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + ".png";
+    for (let i = 0; i < results.length; i++) {
+        let markerLetter = String.fromCharCode("A" .charCodeAt(0) + (i % 26));
+        let markerIcon = MARKER_PATH + markerLetter + ".png";
     //Marker animation to drop the icons
     markers[i] = new google.maps.Marker({
         position: results[i].geometry.location,
@@ -209,7 +209,7 @@ function searchRestaurant() {
 }
 //search for attractions in selected city
 function searchAttractions() {
-    var search = {
+    let search = {
         bounds: map.getBounds(),
         types: ["museum", "art_gallery", "park"]
     };
@@ -220,9 +220,9 @@ function searchAttractions() {
        document.getElementById("results-heading").innerHTML = "Results";
     // Create a marker for each hotel found, and
     // assign a letter of the alphabetic to each marker
-    for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + ".png";
+    for (let i = 0; i < results.length; i++) {
+        let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
+        let markerIcon = MARKER_PATH + markerLetter + ".png";
     //Marker animation to drop the icons
     markers[i] = new google.maps.Marker({
         position: results[i].geometry.location,
@@ -240,7 +240,7 @@ function searchAttractions() {
 }
 
 function clearMarkers() {
-    for (var i = 0; i < markers.length; i++) {
+    for (let i = 0; i < markers.length; i++) {
         if (markers[i]) {
             markers[i].setMap(null);
         }
@@ -251,7 +251,7 @@ function clearMarkers() {
 // set the country restrictions based on user input.
 // Also center and zoom the map on the given country
 function setAutocompleteCountry() {
-    var country = document.getElementById("country").value;
+    let country = document.getElementById("country").value;
     if (country == "all") {
         autocomplete.setComponentRestrictions({ country: [] });
         map.setCenter({ lat: 15, lng: 0 });
@@ -274,17 +274,17 @@ function dropMarker(i) {
 
 //Adds found results
 function addResult(result, i) {
-    var results = document.getElementById("results");
-    var markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
-    var markerIcon = MARKER_PATH + markerLetter + ".png";
-    var tr = document.createElement("tr");
+    let results = document.getElementById("results");
+    let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
+    let markerIcon = MARKER_PATH + markerLetter + ".png";
+    let tr = document.createElement("tr");
     tr.style.backgroundColor = (i % 2 === 0 ? "#F0F0F0" : "#FFFFFF");
     tr.onclick = function() {
         google.map.event.trigger(markers[i], "click");
     };
-    var iconTd = document.createElement("td");
-    var nameTd = document.createElement("td");
-    var icon = document.createElement("img");
+    let iconTd = document.createElement("td");
+    let nameTd = document.createElement("td");
+    let icon = document.createElement("img");
     icon.src = markerIcon;
     icon.setAttribute("class", "placeIcon");
     icon.setAttribute("className", "placeIcon");
@@ -297,7 +297,7 @@ function addResult(result, i) {
 }
 
 function clearResults() {
-    var results = document.getElementById("results");
+    let results = document.getElementById("results");
     while (results.childNodes[0]) {
         results.removeChild(results.childNodes[0]);
     }
@@ -306,7 +306,7 @@ function clearResults() {
 // Get the place details for hotel, restaurant, attraction.
 //anchored on the marker for the hotel that user selects
 function showInfoWindow() {
-    var marker = this;
+    let marker = this;
     places.getDetails({ placeId: marker.placeResult.place_id },
         function(place, status) {
          if (status !== google.maps.places.PlacesServiceStatus.OK) {
@@ -334,8 +334,8 @@ else {
 //Assign a five-star rating to the place
 //to indicate the rating the place has earned.
 if (place.rating) {
-    var ratingHtml = "";
-    for (var i = 0; i < 5; i++) {
+    let ratingHtml = "";
+    for (let i = 0; i < 5; i++) {
       if (place.rating < (i + 0.5)) {
           ratingHtml += "&#10025;";
       } 
@@ -352,8 +352,8 @@ if (place.rating) {
 // The regexp isolates the first part of the URL (domain plus subdomain)
 //to give a short URL for displaying in the info window
 if (place.website) {
-    var fullUrl = place.website;
-    var website = hostnameRegexp.exec(place.website);
+    let fullUrl = place.website;
+    let website = hostnameRegexp.exec(place.website);
     if (website === null) {
         website = 'http://' + place.website + '/';
         fullUrl = website;
