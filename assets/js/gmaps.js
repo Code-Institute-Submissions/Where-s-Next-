@@ -8,7 +8,7 @@ var MARKER_PATH =
   "https://developers.google.com/maps/documentation/javascript/images/marker_green";
 var hostnameRegexp = new RegExp("^https?://.+?/");
 
-//List of Countries and properties
+//List of Countries and properties, country lat and lng was taken from googledevelopers documentation 
 var countries = {
     "au": {
     center: { lat: -25.3, lng: 133.8 },
@@ -73,7 +73,7 @@ function reset() {
     map.setComponentRestrictions = { "country": []};
     place = "";
     $("#country")[0].selectedIndex = 0;
-    $("#autocomplete").val("");
+    $("#autocomplete").val("");    
 }
 //Inititialise the map
 function initMap() {
@@ -92,7 +92,7 @@ infoWindow = new google.maps.InfoWindow({
     content: document.getElementById("info-content"),
 });
 
-//Create the autocomplete and associate it with UI input control
+//Create the autocomplete and associate it with UI input control g
 autocomplete = new google.maps.places.Autocomplete(
    
     document.getElementById("autocomplete"), {
