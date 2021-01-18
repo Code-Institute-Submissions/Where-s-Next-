@@ -2,20 +2,22 @@
 
 ![Screenshot](assets/images/)
 
-This is the Website for [Where's Next?](https://leeap83.github.io/Where-s-Next-/.) Where's next is a site that allows useres to search for their next holiday destinations using google maps to find accomadation and with Google Places they can find places to eat and top attractions nearby. 
+This is the Website for [Where's Next?](https://leeap83.github.io/Where-s-Next-/.) Where's next is a site that allows users to search for their next holiday destinations, by using google maps users can find accommodation and with Google Places they can also find places to eat and top attractions nearby. 
 
 ## User Experience (UX)
 
-This Website has been designed for Couples, families, Single adults, teens and anyone who wants to leave there cares behind and discover somewhere new. Bu using Where's next the user can find inspiration from recomeneded destinations or they can use the search feature to find their ideal location.
+This Website has been designed for Couples, families, Single adults, teens and anyone who wants to leave there cares behind and discover somewhere new. By using Where's next the user can find inspiration from recommeneded destinations or they can use the search feature to find their ideal location.
 
 **User stories**
 
 **External User Goals:**
 * Find the best holiday destination for their needs.
 
+
 **Site Owner's Goals:**
 *  Get users to choose a travel package from this site and/or from its sponsors.
-
+*  Allow users to select/search a city and see a map showing attractions, accommodation & restaurants.
+*  Display results that are visually appealing and user friendly.
 
 **Design**
 *  Colour Scheme   
@@ -28,7 +30,7 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
 *  Typography
     
-    The font Raleway has been used throughout with Sans Serief as anternative.
+    The font Raleway has been used throughout with Sans Serief as an alternative.
     
 *  Imagery
 
@@ -42,11 +44,17 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
  ## Features
 
- * Responsive on all devices
- * Google Maps 
- * Google Places
- * Info Window
- 
+ * Responsive on all devices - The site is designed to be responsive for desktop and Mobile devices.
+ * Google Maps API - The inclusion of Google Maps to the Website allows users to visually see the location they select.
+ * Google Places - Places allows the users to access points of interest, this has been restricted to the city selected in the autocomplete.  
+ * Info Window - An infowindow has been added so when a user clicks on a marker a popup window appears showing the place details.
+ * Results table - When a user selects a city a table of the results appears below the map showing the user the name of the places and relevent marker.
+ * Popular destination - A section has been included of popular destinations to inspire the user.
+ * Buttons & Navbar - The Navbar and buttons have been linked to take you to the specific area of the page to allow users to navigate easy.
+
+## Future Development
+
+The addition of a search here button on the map to allow users to find hotels, restaurants & things to do on any area of the map. 
 
 
  ## Technologies Used
@@ -59,50 +67,75 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
 **Frameworks, Libraries & Programs Used**
 
-1. [Bootstrap 4.5.2](https://getbootstrap.com/):
-* Bootstrap was used with to assist with styling and responsiveness of the website.
+1. [Bootstrap 4.5.2](https://getbootstrap.com/): 
+ Bootstrap was used with to assist with styling and responsiveness of the website.
 
 2. [Font Awesome](https://fontawesome.com/):
-* Font Awesome was used to provide the Icons throughout this website.
+ Font Awesome was used to provide the Icons throughout this website.
 
 3. [Google Fonts](https://fonts.google.com/):
-* Google fonts was used to import the font into the style.css file
+ Google fonts was used to import the font into the style.css file
 
 4. [JavaScript](https://www.javascript.com/):
-* JavaScript was used to write scripts for the Google Maps Api and the country/City search function.
+ JavaScript was used to write scripts for the Google Maps Api and the country/City search function.
 
 5. [Git](https://git-scm.com/): 
-* Git was used by utilizing the Gitpod terminal to commit to Git and push to GitHub
+ Git was used by utilizing the Gitpod terminal to commit to Git and push to GitHub
 
 6. [GitHub](https://github.com/):
-* GitHub was used to create a repository and store the code after it was pushed from Git.
+ GitHub was used to create a repository and store the code after it was pushed from Git.
 
 7. [Balsamiq](https://balsamiq.com/):
-* Wireframes were created using Balsamiq
+ Wireframes were created using Balsamiq
 
 8. [Pixabay](https://pixabay.com/):
-* Pixabay was used to source all imagery for the webpage.
+ Pixabay was used to source all imagery for the webpage.
 
 
 ## Testing
 
+The Website was tested on Internet Explorer, Google Chrome, Firefox and Safari.
+A selection of devices was used to test the website and the mobile responsiveness.
+
+The Freeformatter HTML Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no errors in the project.
+
+[CSS Validator](http://jigsaw.w3.org/css-validator/) - [Results](docs/CSS-Validation.pdf)
+
+[HTML Validator](https://validator.w3.org/) - [Results](docs/HTML-Validation.pdf)
+
+[JavaScript Validator] 
 
 **Testing User Stories**
 
 **External User Goals:**
 * Find the best holiday destination for their needs.
 
+    The website uses Google Maps, Google Places and radio buttons to allow the user to [search](assets/images/search.png)
+    for their best destination.
+
 **Site Owner's Goals:**
-*  Get users to choose a travel package from this site and/or from its sponsors. 
+*  Get users to choose a travel package from this site and/or from its sponsors.
+
+    An [inspire me](assets/images/destinations.png) section was added to inspire users to choose a travel package, 
+    the info-window allows the users to click on the [hyperlink](assets/images/hyperlink.png) and can see prices and booking details. 
+
+*  Allow users to select/search a city and see a map showing attractions, accommodation & restaurants.
+
+    The user can utilise the [country](assets/images/country.png) and/or the [city](assets/images/city.png) to select their 
+    destination. Then using the radio buttons they can filter between hotels, restaurants and things to do.
+
+*  Display results that are visually appealing and user friendly.
+
+    Multiple markers drop onto the map and provide user with location of the places. A [results](assets/images/results.png) 
+    table matches the marker with the name of the place found and an info window pops up when marker clicked.
+
 
 
 ## Bugs
 
+*  When the reset button is clicked the map, country and city retuns to original state but the radio buttons don't reset.
+This has been left unfixed as the user can toggle between the radio buttons when next city is selected.
 
-
-## Future Development
-
-The addition of a search here button on the map to allow users to find hotels, restaurants & things to do on any area of the map. 
 
 ## Deployment 
 
@@ -128,7 +161,7 @@ Forking the GitHub repository allows you to create a copy of the original on you
 To make A local clone follow these steps...
 
 1. Log in to GitHub and locate the GitHub Repository
-2. Under the repository name, click"Clone or Download".
+2. Under the repository name, click "Clone or Download".
 3. Click the "Clone with HTTPS" and copy the link.
 4. Open Git Bash and change the working directory to the location where the clone will be copied to.
 5. Type "git clone" and then paste the URL and press enter. and a clone will be created.
