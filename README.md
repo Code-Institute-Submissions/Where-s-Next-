@@ -1,6 +1,6 @@
 # MSP2 Where's Next?  Website
 
-![Screenshot](assets/images/)
+![Screenshot](assets/images/screenshot.png)
 
 This is the Website for [Where's Next?](https://leeap83.github.io/Where-s-Next-/.) Where's next is a site that allows users to search for their next holiday destinations, by using google maps users can find accommodation and with Google Places they can also find places to eat and top attractions nearby. 
 
@@ -103,7 +103,6 @@ The Freeformatter HTML Validator and W3C CSS Validator Services were used to val
 
 [HTML Validator](https://validator.w3.org/) - [Results](docs/HTML-Validation.pdf)
 
-[JavaScript Validator] 
 
 **Testing User Stories**
 
