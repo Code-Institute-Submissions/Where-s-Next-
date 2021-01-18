@@ -4,7 +4,7 @@ let infoWindow;
 let markers = [];
 let autocomplete;
 let countryRestrict = {
-    'country': []
+    "country": []
 };
 const MARKER_PATH =
     "https://developers.google.com/maps/documentation/javascript/images/marker_green";
@@ -111,12 +111,10 @@ function reset() {
     clearMarkers();
     map.setZoom(2);
     map.setCenter(countries["uk"].center);
-    map.setComponentRestrictions = {
-        "country": []
-    };
-    place = "";
+    map.setComponentRestrictions = { "country": [] };
     $("#country")[0].selectedIndex = 0;
     $("#autocomplete").val("");
+    place = "";
 }
 //Inititialise the map
 function initMap() {
@@ -152,7 +150,7 @@ function initMap() {
 }
 
 function onPlaceChanged() {
-    if ($("#accomodationRadio").is(':checked')) {
+    if ($("#accomodationRadio").is(":checked")) {
         let place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -161,7 +159,7 @@ function onPlaceChanged() {
         } else {
             $("#autocomplete").attr("placeholder", "Enter a city");
         }
-    } else if ($("#foodRadio").is(':checked')) {
+    } else if ($("#foodRadio").is(":checked")) {
         let place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -170,7 +168,7 @@ function onPlaceChanged() {
         } else {
             $("#autocomplete").attr("placeholder", "Enter a city");
         }
-    } else if ($("#touristRadio").is(':checked')) {
+    } else if ($("#touristRadio").is(":checked")) {
         let place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -186,7 +184,7 @@ function onPlaceChanged() {
 function searchHotel() {
     let search = {
         bounds: map.getBounds(),
-        types: ['lodging']
+        types: ["lodging"]
     };
     places.nearbySearch(search, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -218,7 +216,7 @@ function searchHotel() {
 function searchRestaurant() {
     let search = {
         bounds: map.getBounds(),
-        types: ['restaurant', 'bar', 'cafe']
+        types: ["restaurant", "bar", "cafe"]
     };
 
     places.nearbySearch(search, function(results, status) {
