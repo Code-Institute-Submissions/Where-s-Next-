@@ -94,15 +94,19 @@ The addition of a search here button on the map to allow users to find hotels, r
 
 ## Testing
 
-The Website was tested on Internet Explorer, Google Chrome, Firefox and Safari.
+The Website was manually tested on Internet Explorer, Google Chrome, Firefox and Safari and on an Iphone. The site is expected to bring back hotel, 
+restaurants and things to do when a user selects a country and a city. The site was tested by selecting different countries and cities and 
+[results](assets/images/results.png) were retuned.
+
 A selection of devices was used to test the website and the mobile responsiveness.
 
-The Freeformatter HTML Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no errors in the project.
+The Freeformatter HTML Validator, W3C CSS Validator and JSHint were used to validate every page of the project to ensure there were no errors in the project.
 
 [CSS Validator](http://jigsaw.w3.org/css-validator/) - [Results](docs/CSS-Validation.pdf)
 
 [HTML Validator](https://validator.w3.org/) - [Results](docs/HTML-Validation.pdf)
 
+[JSHint](https://jshint.com/) 
 
 **Testing User Stories**
 
