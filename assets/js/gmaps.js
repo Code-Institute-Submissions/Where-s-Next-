@@ -105,37 +105,35 @@ const countries = {
     },
 };
 
-//reset the map back to state
+//Reset the map and input fields back to state
 function reset() {
     clearResults();
     clearMarkers();
     map.setZoom(2);
-    map.setCenter(countries["uk"].center);
+    map.setCenter(countries.uk.center);
     map.setComponentRestrictions = { "country": [] };
     $("#country")[0].selectedIndex = 0;
     $("#autocomplete").val("");
     place = "";
 }
-//Inititialise the map
+
+//Inititialise the map and creates info-window
 function initMap() {
     $("#accomodationRadio").prop("checked", true);
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 3,
-        center: countries["uk"].center,
+        center: countries.uk.center,
         mapTypeControl: false,
         panControl: false,
         zoomControl: false,
         streetViewControl: false,
-
     });
-
     infoWindow = new google.maps.InfoWindow({
         content: document.getElementById("info-content"),
     });
-
-    //Create the autocomplete and associate it with UI input control g
+    //Creates the autocomplete and associate it with UI input control 
+    //Restrict the search to the default country, and to place type to city entered
     autocomplete = new google.maps.places.Autocomplete(
-
         document.getElementById("autocomplete"), {
             types: ["(cities)"],
             componentRestrictions: countryRestrict,
@@ -149,6 +147,7 @@ function initMap() {
     document.getElementById("reset-button").addEventListener("change", setAutocompleteCountry);
 }
 
+//when user selects a city, the place details are retrieved for the city and zooms in on city
 function onPlaceChanged() {
     if ($("#accomodationRadio").is(":checked")) {
         let place = autocomplete.getPlace();
@@ -178,9 +177,8 @@ function onPlaceChanged() {
             $("#autocomplete").attr("placeholder", "Enter a city");
         }
     }
-
 }
-//search for hotels in selected city
+//search for hotels in selected city, within the map viewport.
 function searchHotel() {
     let search = {
         bounds: map.getBounds(),
@@ -197,7 +195,7 @@ function searchHotel() {
             for (let i = 0; i < results.length; i++) {
                 let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
                 let markerIcon = MARKER_PATH + markerLetter + ".png";
-                //Marker animation to drop the icons
+                //Marker animation to drop the icons on the map
                 markers[i] = new google.maps.Marker({
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
@@ -229,7 +227,7 @@ function searchRestaurant() {
             for (let i = 0; i < results.length; i++) {
                 let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
                 let markerIcon = MARKER_PATH + markerLetter + ".png";
-                //Marker animation to drop the icons
+                //Marker animation to drop the icons on the map
                 markers[i] = new google.maps.Marker({
                     position: results[i].geometry.location,
                     animation: google.maps.Animation.DROP,
@@ -244,6 +242,7 @@ function searchRestaurant() {
         }
     });
 }
+
 //search for attractions in selected city
 function searchAttractions() {
     let search = {
@@ -256,7 +255,7 @@ function searchAttractions() {
             clearMarkers();
             document.getElementById("results-heading").innerHTML = "Results";
             // Create a marker for each hotel found, and
-            // assign a letter of the alphabetic to each marker
+            // assign a letter of the alphabetic to each marker on the map
             for (let i = 0; i < results.length; i++) {
                 let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
                 let markerIcon = MARKER_PATH + markerLetter + ".png";
@@ -315,7 +314,7 @@ function dropMarker(i) {
     };
 }
 
-//Adds found results
+//Adds found results below the map
 function addResult(result, i) {
     let results = document.getElementById("results");
     let markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
@@ -374,7 +373,6 @@ function buildIWContent(place) {
     } else {
         document.getElementById("iw-phone-row").style.display = "none";
     }
-
     //Assign a five-star rating to the place
     //to indicate the rating the place has earned.
     if (place.rating) {
