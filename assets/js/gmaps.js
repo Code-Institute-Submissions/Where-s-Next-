@@ -111,7 +111,9 @@ function reset() {
     clearMarkers();
     map.setZoom(2);
     map.setCenter(countries.uk.center);
-    map.setComponentRestrictions = { "country": [] };
+    map.setComponentRestrictions = {
+        "country": []
+    };
     $("#country")[0].selectedIndex = 0;
     $("#autocomplete").val("");
     place = "";
