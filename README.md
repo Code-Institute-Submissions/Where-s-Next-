@@ -112,9 +112,8 @@ The Freeformatter HTML Validator and W3C CSS Validator were used to validate eve
 
 [JSHint](https://jshint.com/) was used to validate the JavaScript 
 
-Lighthouse in Google Chrome developer tools was used to test the websites performance, quality and correctivness
-[Desktop Results] 
-[Mobile Results]
+Lighthouse in Google Chrome developer tools was used to test the websites performance, quality and correctivness for both
+[Desktop](docs/lighthouse-desktop.pdf) and [Mobile](docs/lighthouse-mobile.pdf)
 
 **Manual Tests for functionality of features**
     
