@@ -116,7 +116,11 @@ h1, h2, h3 {
     }
 table {
   font-size: 18px;
-  width: 50%;
+  
+}
+/*----------------Info Window*/
+.iw_table_row {
+   width: 100%;
 }
 
 /*-------------- Popular Destinations*/

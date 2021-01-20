@@ -11,13 +11,20 @@ This Website has been designed for Couples, families, Single adults, teens and a
 **User stories**
 
 **External User Goals:**
-* Find the best holiday destination for their needs.
+* I want to be able to access and navigate the site easily.
+* I want to find the best holiday destination for my needs.
+* I want to be able to choose from a choice of destinations.
+* I want to see Hotels, places to Eat and attractions in relevent destination i choose.
 
 
 **Site Owner's Goals:**
-*  Get users to choose a travel package from this site and/or from its sponsors.
-*  Allow users to select/search a city and see a map showing attractions, accommodation & restaurants.
-*  Display results that are visually appealing and user friendly.
+*  Allow users to easily navigate the site.   
+*  Allow users to choose a travel package from this site and/or from its sponsors.
+*  Allow users to select a country to find a city.
+*  Allow users to find cities in the selected country.  
+*  Allow and see a map showing attractions, accommodation & restaurants.
+*  Allow users to view results that are visually appealing and user friendly.
+*  Allow users to access site on multiple devices.
 
 **Design**
 *  Colour Scheme   
@@ -46,11 +53,14 @@ This Website has been designed for Couples, families, Single adults, teens and a
 
  * Responsive on all devices - The site is designed to be responsive for desktop and Mobile devices.
  * Google Maps API - The inclusion of Google Maps to the Website allows users to visually see the location they select.
- * Google Places - Places allows the users to access points of interest, this has been restricted to the city selected in the autocomplete.  
+ * Google Places - Places allows the users to access points of interest, this has been restricted to the city selected in the autocomplete. 
+ * Markers - Markers were created to drop on to the map when a city is choosen.
+ * Radio buttons - Radio buttons were added to allow users to choose what they want to search for. 
  * Info Window - An infowindow has been added so when a user clicks on a marker a popup window appears showing the place details.
  * Results table - When a user selects a city a table of the results appears below the map showing the user the name of the places and relevent marker.
  * Popular destination - A section has been included of popular destinations to inspire the user.
  * Buttons & Navbar - The Navbar and buttons have been linked to take you to the specific area of the page to allow users to navigate easy.
+ * Reset button - The reset button allows users to clear the previous search fields.
 
 ## Future Development
 
@@ -94,43 +104,132 @@ The addition of a search here button on the map to allow users to find hotels, r
 
 ## Testing
 
-The Website was manually tested on Internet Explorer, Google Chrome, Firefox and Safari and on an Iphone. The site is expected to bring back hotel, 
-restaurants and things to do when a user selects a country and a city. The site was tested by selecting different countries and cities and 
-[results](assets/images/results.png) were retuned.
-
-A selection of devices was used to test the website and the mobile responsiveness.
-
-The Freeformatter HTML Validator, W3C CSS Validator and JSHint were used to validate every page of the project to ensure there were no errors in the project.
+The Freeformatter HTML Validator and W3C CSS Validator were used to validate every page of the project to ensure there were no errors in the project.
 
 [CSS Validator](http://jigsaw.w3.org/css-validator/) - [Results](docs/CSS-Validation.pdf)
 
 [HTML Validator](https://validator.w3.org/) - [Results](docs/HTML-Validation.pdf)
 
-[JSHint](https://jshint.com/) 
+[JSHint](https://jshint.com/) was used to validate the JavaScript 
+
+Lighthouse in Google Chrome developer tools was used to test the websites performance, quality and correctivness
+[Desktop Results] 
+[Mobile Results]
+
+**Manual Tests for functionality of features**
+    
+* Responsive on all devices - Chrome Dev Tools was used to check the sites compatiability all all devices. 
+A link to the site was tested on iphone and ipad.
+* Google Maps API - As soon as the initmap and the CSS style was added the website was checked to see if the map
+loaded properly. 
+* Google Places autocomplete - The autocomplete search field was added, styled and the javascript code was completed
+the field box was checked to see if it worked with and without a country selected.
+The cities is restricted to cities in the specific country if selected, if country is left on All then any city can be selected.
+* Markers - I checked that after a city was selected for each country that markers appeared on the map and 
+the matching results appeared in the results table under the web page. This was tested for multiple cities and for the types.
+* Radio buttons - the radio buttons were toggled on various cities to ensure that the correct results were returned for 
+the correct type selected.
+* Infowindow - When user clicks on the marker the place info appears with details and a hyperlink to google places so the user can book
+accommodation, restaurants or attractions. The infowindow was tested by clicking on randomly selected hotels, restaurants and attractions. 
+* Results table - When the user selects a city a results table appears underneath the search field this was tested on cities to return
+hotel, restaurants and attractions with corresponding marker letter to those on maps. 
+* Buttons & Navbar - The buttons and the navbar allow users to be taken to different areas of the site, each button was clicked on to 
+check if they worked and users are taken to the correct section.
+* Reset button - The reset button allows users to clear the search fields, this was tested on reseting the country, city and radio buttons.
+The button works and resets the map, markers, the country and the city. The radio buttons dont reset back to accomodation, this has been highlighted 
+as a bug and the decision to not fix is explained.    
+
 
 **Testing User Stories**
 
 **External User Goals:**
-* Find the best holiday destination for their needs.
+* I want to be able to access and navigate the site easily.
+    
+    (a)  A nav bar was added to allow the user to be able to navigate to each section of the page.
 
-    The website uses Google Maps, Google Places and radio buttons to allow the user to [search](assets/images/search.png)
-    for their best destination.
+    (b)  Buttons are added to each section to move to desired section of the site.
+
+* I want to find the best holiday destination for my needs.
+
+    (a)  Google Maps API and places libraries was added to allow users the ability to find their ideal holiday.
+
+    (b)  A list of popular destinations was added to give the user inspiration for their destination.
+
+* I want to be able to choose from a choice of destinations.
+
+    (a)  A drop down list of countries was added based on popular countries to allow users to narrow their search.
+
+    (b)  Autocomplete feature was added for cities allowing the user to select a city of their choice.
+
+    (c)  Markers drop on the map to show users a cjhoice of hotel, restaurants and attractions.
+    
+* I want to see Hotels, places to Eat and attractions in relevent destination I choose.
+
+    (a)  Google Places Library was added to the API key to allow users to find places nearby
+
+    (b)  Radio buttons were added so the users can alternate between hotels, restaurants and attractions.
+
+    (c)  An infowindow shows the destination details and ratings allowing users the ability to select from a choice.
+
 
 **Site Owner's Goals:**
-*  Get users to choose a travel package from this site and/or from its sponsors.
+*  Allow users to easily navigate the site. 
 
-    An [inspire me](assets/images/destinations.png) section was added to inspire users to choose a travel package, 
-    the info-window allows the users to click on the [hyperlink](assets/images/hyperlink.png) and can see prices and booking details. 
+    (a)  A nav bar was added to allow the user to be able to navigate to each section of the page, these were tested to ensure that when 
+    clicked the user was taken to the correct section.    
 
-*  Allow users to select/search a city and see a map showing attractions, accommodation & restaurants.
+    (b)  Buttons are added to each section to move to desired section of the site, these were tested to ensure that when 
+    clicked the user was taken to the correct section.
+    
+    ![Navbar](assets/images/Navbar.png)
 
-    The user can utilise the [country](assets/images/country.png) and/or the [city](assets/images/city.png) to select their 
-    destination. Then using the radio buttons they can filter between hotels, restaurants and things to do.
+*  Allow users to choose a travel package from this site and/or from its sponsors.
 
-*  Display results that are visually appealing and user friendly.
+    (a)  Users can find their next holiday destination through the search feature by selecting a country and by entering a city.
+         ![country](assets/images/search.png)
+    (b)  When users select the country and city markers appear on the map with an info window. 
+         ![results](assets/images/results.png)
+    (c)  Users can click on hyperlink in the infowindow of the place they find to book through google.com/maps/places ![hyperlink](assets/images/hyperlink.png)
 
-    Multiple markers drop onto the map and provide user with location of the places. A [results](assets/images/results.png) 
-    table matches the marker with the name of the place found and an info window pops up when marker clicked.
+*  Allow users to select a country to find a city.
+
+    (a)  A selection of countries was included in a dropdown menu to allow users to narrow their search.
+        ![dropdown](assets/images/Dropdown.png)
+    
+*  Allow users to find cities in the selected country.  
+
+    (a)  Google places autocomplete feature was added to give users the type-ahead-search behavior of the Google Maps in
+    the city search field. ![autocomplete](assets/images/Autocomplete.png)
+
+    (b)  JavaScript code was added to restrict the autocomplete so when a country is selected only cities for that country
+    can be selected, this was tested by searching for cities for each country that aren't in that country.
+
+
+*  Allow and see a map showing attractions, accommodation & restaurants.
+
+    (a)  Google Maps function was added to the site which displays results based on user input.
+
+    (b)  Radio buttons were added to the site which allows users to alterante between each type.
+
+    (c)  Place changed function was added on click would return different results based on which button was clicked.
+
+
+*  Allow users to view results that are visually appealing and user friendly.
+
+    (a)  The markers drop on to the map with alphabetical markers similar to google maps.
+
+    (b)  The infowindow was designed to display the detail in a visualy familiar way so users have a familiar experience.
+
+    (c)  When the user selects the city a results table appears with a list of names of the places with a mathing 
+    alphabetical marker to those on the map.
+
+
+*  Allow users to access site on multiple devices.
+
+    (a)  The webstie has been designed and tested to respond on multiple devices. The site was tested mainly with 
+    Chrome developer tools and the responsiveness was tested for multiple devices and screen widths.
+
+    (b)  The site was tested on iphone and on an ipad. 
 
 
 
@@ -139,6 +238,7 @@ The Freeformatter HTML Validator, W3C CSS Validator and JSHint were used to vali
 *  When the reset button is clicked the map, country and city retuns to original state but the radio buttons don't reset.
 This has been left unfixed as the user can toggle between the radio buttons when next city is selected.
 
+*  During the lighthouse audit 
 
 ## Deployment 
 
