@@ -237,7 +237,8 @@ as a bug and the decision to not fix is explained.
 *  When the reset button is clicked the map, country and city retuns to original state but the radio buttons don't reset.
 This has been left unfixed as the user can toggle between the radio buttons when next city is selected.
 
-*  During the lighthouse audit 
+*  During the lighthouse audit, the performance on desktop and mobile could be improved by using next-gen formats for the images which means
+faster downloads and less data consumption. 
 
 ## Deployment 
 
