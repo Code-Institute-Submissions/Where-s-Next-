@@ -238,7 +238,8 @@ as a bug and the decision to not fix is explained.
 This has been left unfixed as the user can toggle between the radio buttons when next city is selected.
 
 *  During the lighthouse audit, the performance on desktop and mobile could be improved by using next-gen formats for the images which means
-faster downloads and less data consumption. 
+faster downloads and less data consumption. The images as I am unfamiliar with next-gen formats and these formats arent compatible with all
+browsers. 
 
 ## Deployment 
 
